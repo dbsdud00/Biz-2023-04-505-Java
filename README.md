@@ -30,6 +30,7 @@ git add .
 6. 현재 local Repository에 보관된 압축된 데이터에 대한 Comment를 추가하기 
 ```bash
 git commit -m "commit name"
+git commit -m commit_name
 ```   
 7. local Repository에 보관된 압축된 데이터를 원격 Repository로 push 
 ```bash
