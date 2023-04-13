@@ -4,7 +4,7 @@
 3. D2coding font 설치
 4. eclipse 설치 : eclipse.org
 
-## git repository 생성
+## :dog: git repository 생성 :dog:
 1. 새로운 컴퓨터에서 최초로 github를 사용하고자 할때 설정
 ```bash
 git config --global user.name dbsdud00
@@ -22,7 +22,7 @@ echo "# Biz-2023-04-Java" >> README.md
 ```bash
 git remote add origin https://github.com/dbsdud00/Biz-2023-04-Java.git
 ```      
-### 기존의 repository에 계속해서 update 하고자 할 때
+### :panda_face: 기존의 repository에 계속해서 update 하고자 할 때 :panda_face:
 5. 현재 폴더의 파일과 폴더를 local Repository에 압축하고, 암호화하여 보관하기 
 ```bash
 git add .
