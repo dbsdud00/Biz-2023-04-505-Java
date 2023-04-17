@@ -19,6 +19,5 @@ public class VarE {
 		System.out.printf("곱  셈 : %d * %d = %d\n", num1, num2, times1);
 		System.out.printf("나눗셈 : %d / %d = %d\n", num1, num2, devide1);
 		
-		
 	}
 }
