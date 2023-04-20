@@ -16,7 +16,8 @@ public class ControllerF {
 		int index;
 		for (index = 2; index < isPrime; index++) {
 			if (isPrime % index == 0) {
-				break;
+//				break;
+				return false;  // 소수가 아니면 false를 강제로 return함 
 			}
 		}
 		boolean yesPrime = isPrime <= index; // isPrime의 값이 index보다 작거나 같으면(= 소수이면) yesPrime에 true을 저장, 소수가 아니면 false를 저장 
@@ -24,13 +25,8 @@ public class ControllerF {
 		return yesPrime; // method와 같은 자료형 타입의 변수(boolean)만 리턴 가능
 		
 		
-//		if (index >= isPrime) {
-//			System.out.println("\t\t\t" + isPrime + "은(는) 소수임");
-			
-//		} else {
-//			System.err.println(isPrime + "은(는) 소수아님");
-//		}
-		//return ; // 생략된것과 같다 , 원래 나를 불렀던 곳으로 되돌아가라
+		
+		
 	}
 	
 	
