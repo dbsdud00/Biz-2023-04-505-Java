@@ -11,7 +11,7 @@ public class ControllerD {
 		int nAvg = 0; // 짝수의 평균
 		for (int i = 0; i<100; i++) {
 			int intRnd = (int)(Math.random()*50)+51;
-			if (intRnd %2 == 0) {
+			if (intRnd % 2 == 0) {
 				count ++;
 				nSum += intRnd; // 짝수를 누적 (숫자값을 계속 쌓아서 덧셈)
 				System.out.println(count + ".\t" + intRnd);
