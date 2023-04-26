@@ -12,6 +12,7 @@ public class HomeWork {
 		}
 		ScoreServiceA scoreServiceA = new ScoreServiceA();
 		
+		// 객체 세팅
 		scoreServiceA.scoreSet(scores[0], "홍길동", "0001");
 		scoreServiceA.scoreSet(scores[1], "이몽룡", "0002");
 		scoreServiceA.scoreSet(scores[2], "성춘향", "0003");
@@ -23,13 +24,8 @@ public class HomeWork {
 		scoreServiceA.scoreSet(scores[8], "박철수", "0009");
 		scoreServiceA.scoreSet(scores[9], "한동후", "0010");
 		
-		System.out.println("=".repeat(60));
-		System.out.println("학번\t이름\t국어\t영어\t수학\t총점\t평균");
-		System.out.println("-".repeat(60));
-		for (int i = 0;i<scores.length;i++) {
-			scoreServiceA.scorePrint(scores[i]);
-		}
-		System.out.println("-".repeat(60));
+		
+		// 각 과목 성적 합계
 		int korTotal = 0;
 		int engTotal = 0;
 		int mathTotal = 0;
@@ -38,7 +34,20 @@ public class HomeWork {
 			engTotal += scores[i].scEng;
 			mathTotal += scores[i].scMath;
 		}
-		scoreServiceA.scoreTotalPrint(korTotal, engTotal, mathTotal);
 		
+		
+		System.out.println("=".repeat(60));
+		System.out.println("학번\t이름\t국어\t영어\t수학\t총점\t평균");
+		System.out.println("-".repeat(60));
+		
+		// 성적 출력
+		for (int i = 0;i<scores.length;i++) {
+			scoreServiceA.scorePrint(scores[i]);
+		}
+		
+		System.out.println("-".repeat(60));
+		
+		// 과목 합계 출력
+		scoreServiceA.scoreTotalPrint(korTotal, engTotal, mathTotal);
 	}
 }
