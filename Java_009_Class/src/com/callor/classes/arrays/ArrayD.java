@@ -14,12 +14,16 @@ public class ArrayD {
 	public static void main(String[] args) {
 		// ScoreDto type 요소 10개를 갖는 배열 선언
 		ScoreDto[] scores = new ScoreDto[10];
-		ScoreServiceA scoreServiceA = new ScoreServiceA();
 		// class type의 배열 요소 전체를 객체 요소로 생성하기
 		for (int index = 0; index < scores.length;index++) {
 			scores[index] = new ScoreDto();
 		}
+
 		
+		
+		
+		
+		ScoreServiceA scoreServiceA = new ScoreServiceA();
 		scores[0].stNum = "0001";
 		scores[0].stName = "홍길동";
 		scores[0].scKor = scoreServiceA.getScore();
