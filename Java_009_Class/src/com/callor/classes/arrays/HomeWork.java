@@ -5,7 +5,10 @@ import com.callor.classes.service.ScoreServiceA;
 
 public class HomeWork {
 	public static void main(String[] args) {
+
 		ScoreDto[] scores = new ScoreDto[10];
+		
+		
 		
 		for (int index = 0; index<scores.length;index++) {
 			scores[index] = new ScoreDto();
