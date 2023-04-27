@@ -17,18 +17,8 @@ public class ScoreList_rank {
 			String num = String.format("23%03d", (i + 1));	// stds[i] 학생의 학번
 			scoreService.scoreSet(stds[i], num);		// stds 객체 배열의 학생 점수 세팅
 		}
-		for(int i = 0; i < rank.length;i++) {
-			int rankCount = 0;
-			for (int j = 0 ; j<rank.length;j++) {
-				if(stds[i].getAvg() < stds[j].getAvg()) {
-					rankCount++;
-				}
-			}
-			rank[i] = rankCount+1;
-		}
+		scoreService.scoreRank(stds, rank); 		 	// 등수 표시
 
-		
-		
 		System.out.println("=".repeat(80));
 		System.out.println("* 한울 고교 성적 리스트 *");
 		System.out.println("=".repeat(80));
@@ -42,8 +32,5 @@ public class ScoreList_rank {
 		
 		scoreService.totalAvgPrint(stds);		// 전체점수와 전체 평균 출력
 		System.out.println("=".repeat(80));
-		
-		
-
 	}
 }

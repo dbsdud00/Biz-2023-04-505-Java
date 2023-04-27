@@ -59,4 +59,16 @@ public class ScoreService {
 		System.out.printf("%5.2f\n",(float)totalScore/(num*5));  // 전체점수를 50으로 나눔
 	}
 	
+	public void scoreRank(ScoreDto[] stds, int[] rank) {
+		for(int i = 0; i < rank.length;i++) {
+			int rankCount = 0;
+			for (int j = 0 ; j<rank.length;j++) {
+				if(stds[i].getAvg() < stds[j].getAvg()) {	// 자신보다 높은 등수 있을 때마다 rankCount++
+					rankCount++;
+				}
+			}
+			rank[i] = rankCount+1;
+		}
+	}
+	
 }
