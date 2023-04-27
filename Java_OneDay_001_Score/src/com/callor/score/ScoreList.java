@@ -24,6 +24,7 @@ public class ScoreList {
 		
 		for (int i = 0; i < stds.length; i++) { // stds 배열의 학생 객체들의 정보 출력
 			scoreService.scorePrint(stds[i]);
+			System.out.println();
 		}
 		
 		System.out.println("-".repeat(80));
