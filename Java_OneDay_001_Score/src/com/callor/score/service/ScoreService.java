@@ -21,7 +21,7 @@ public class ScoreService {
 		System.out.printf("%5d\t",std.scMusic);
 		System.out.printf("%5d\t",std.scArt);
 		System.out.printf("%5d\t",std.getTotal());
-		System.out.printf("%5.2f\n",std.getAvg());
+		System.out.printf("%5.2f\t",std.getAvg());
 	}
 	
 
@@ -51,12 +51,12 @@ public class ScoreService {
 		System.out.printf("%5d\n",totalScore);
 		
 		System.out.printf("평균\t\t");
-		System.out.printf("%4.2f\t",(float)totalKor/num);
-		System.out.printf("%4.2f\t",(float)totalEng/num);
-		System.out.printf("%4.2f\t",(float)totalMath/num);
-		System.out.printf("%4.2f\t",(float)totalMusic/num);
-		System.out.printf("%4.2f\t\t",(float)totalArt/num); // 학생 10명의 5과목의 점수를 모두 더한 전체 점수
-		System.out.printf("%4.2f\n",(float)totalScore/(num*5));  // 전체점수를 50으로 나눔
+		System.out.printf("%5.2f\t",(float)totalKor/num);
+		System.out.printf("%5.2f\t",(float)totalEng/num);
+		System.out.printf("%5.2f\t",(float)totalMath/num);
+		System.out.printf("%5.2f\t",(float)totalMusic/num);
+		System.out.printf("%5.2f\t\t",(float)totalArt/num); // 학생 10명의 5과목의 점수를 모두 더한 전체 점수
+		System.out.printf("%5.2f\n",(float)totalScore/(num*5));  // 전체점수를 50으로 나눔
 	}
 	
 }
