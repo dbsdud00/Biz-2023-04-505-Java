@@ -5,9 +5,10 @@ import java.util.Scanner;
 import com.callor.system.models.StudentDto;
 
 public class StudentServiceV2 {
+	StudentDto[] stList = new StudentDto[5];
+	
 	public void inputStudents() {
 		
-		StudentDto[] stList = new StudentDto[5];
 		Scanner scan = new Scanner(System.in);
 		for (int i = 0; i<stList.length; i++) {
 			stList[i] = new StudentDto();
@@ -53,5 +54,29 @@ public class StudentServiceV2 {
 		for (int i = 0; i< stList.length;i++) {
 			System.out.println(stList[i].toString());
 		}
+		System.out.println();
 	}
+	
+	
+	public void printStudents() {
+		System.out.println("=".repeat(60));
+		System.out.println("학번\t이름\t학과\t\t학년\t전화번호");
+		
+		System.out.println("-".repeat(60));
+		for (int i = 0; i< stList.length; i++) {
+			System.out.printf("%s\t",stList[i].getStNum());
+			System.out.printf("%s\t",stList[i].getStName());
+			System.out.printf("%s\t\t",stList[i].getStDept());
+			System.out.printf("%d\t",stList[i].getStGrade());
+			System.out.printf("%s\t",stList[i].getStTel());
+			if (i<stList.length-1) {
+				System.out.println();
+			}
+		}
+		System.out.println();
+		System.out.println("=".repeat(60));
+		
+	}
+	
+	
 }
