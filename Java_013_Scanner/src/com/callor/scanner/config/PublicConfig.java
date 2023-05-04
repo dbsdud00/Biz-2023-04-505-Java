@@ -77,16 +77,4 @@ public class PublicConfig {
 	 */
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
