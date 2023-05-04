@@ -3,8 +3,10 @@ package com.callor.scanner.service;
 import java.util.Scanner;
 
 public class PrimeServiceV1 {
-	private static int getNum() {
-		Scanner scan = new Scanner(System.in);
+	
+	Scanner scan = new Scanner(System.in);
+	
+	public int getNum() {
 		int intNum;
 		String inputNum = "";
 
@@ -33,7 +35,7 @@ public class PrimeServiceV1 {
 	}
 
 
-	public static int prime(int num) {
+	public int primeYesNo(int num) {
 		int i;
 
 		for (i = 2; i < num; i++) {
