@@ -47,8 +47,8 @@ public class ScoreServiceV2 {
 			int scEng = (int)(Math.random()*50)+51;
 			int scMath =(int)(Math.random()*50)+51;
 	
-			stDto = new ScoreDto(stNum, scKor, scEng, scMath);
-			scList.add(stDto);
+//			stDto = new ScoreDto(stNum, scKor, scEng, scMath);
+//			scList.add(stDto);
 		}
 		
 		System.out.println(scList);

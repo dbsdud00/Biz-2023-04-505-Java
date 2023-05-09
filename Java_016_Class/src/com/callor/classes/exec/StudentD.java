@@ -9,7 +9,7 @@ public class StudentD {
 		StudentService stdService = new StudentServiceImplV1();
 		stdService.loadStudent();
 		stdService.printStudent();
-		StudentDto stdDto = stdService.getStudent("S0010");
+		StudentDto stdDto = stdService.getStudent("S0003");
 		System.out.println(stdDto);
 		
 	}
