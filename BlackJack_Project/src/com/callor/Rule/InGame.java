@@ -21,6 +21,7 @@ public class InGame {
 				dealer.setScore(dealer.getScore() + gameSet.scoreCheck());
 				System.out.printf("딜러의 점수는 %d 점", dealer.getScore());
 				System.out.println();
+				System.out.println();
 				if (dealer.getScore()>21) {
 					stop = true;
 					winner = "게이머";
@@ -56,6 +57,7 @@ public class InGame {
 			System.out.println(gameSet.drawCard());
 			gamer.setScore(gamer.getScore() + gameSet.scoreCheck());
 			System.out.printf("게이머의 점수는 %d 점", gamer.getScore());
+			System.out.println();
 			System.out.println();
 			if (gamer.getScore()>21) {
 				stop = true;
