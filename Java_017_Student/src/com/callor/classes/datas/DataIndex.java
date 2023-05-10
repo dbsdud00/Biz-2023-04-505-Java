@@ -1,5 +1,6 @@
 package com.callor.classes.datas;
 
+
 public class DataIndex {
 	// Inner class
 	// 큰 바깥쪽 클래스 내에 소분류 클래스를 구성하는 방식

@@ -28,7 +28,24 @@ public class ScoreServiceImplV1 implements ScoreService {
 	public ScoreServiceImplV1() {
 		scList = new ArrayList<>();
 	}
-	
+	// 성적 정보 문자열 1개를 컴마(,)로 분해하고
+	// ScoreDto 객체로 변환하여  return 하는 method
+	protected ScoreDto str2Dto(String str) {
+		String[] score = str.split(",");
+		// ScoreDto 클래스는 field 생성자가 있다.
+		// field 생성자를 통하여 데이터가 포함된 scDto 객체를 생성
+		ScoreDto scDto = new ScoreDto(
+				score[DataIndex.SCORE.ST_NUM], 
+				Integer.valueOf(score[DataIndex.SCORE.ST_KOR]),
+				Integer.valueOf(score[DataIndex.SCORE.ST_ENG]), 
+				Integer.valueOf(score[DataIndex.SCORE.ST_MATH]),
+				Integer.valueOf(score[DataIndex.SCORE.ST_MUSIC]), 
+				Integer.valueOf(score[DataIndex.SCORE.ST_ART]),
+				Integer.valueOf(score[DataIndex.SCORE.ST_SOFTWARE]), 
+				Integer.valueOf(score[DataIndex.SCORE.ST_DATABASE])
+		);
+		return scDto;
+	}
 
 	// scData.SCORE 배열을 loading 하여 scList 데이터로 변환하기
 	@Override
@@ -36,22 +53,21 @@ public class ScoreServiceImplV1 implements ScoreService {
 		// TODO Auto-generated method stub
 		// DataSource.SCORE 문자열 배열의 값을 
 		// List<ScoreDto> type 의 리스트 데이터로 변환하기
-		ScoreDto scDto;
 		for (String str : DataSource.SCORE) {
-			String[] score = str.split(",");
-			// ScoreDto 클래스는 field 생성자가 있다.
-			// field 생성자를 통하여 데이터가 포함된 scDto 객체를 생성
-			scDto = new ScoreDto(
-					score[DataIndex.SCORE.ST_NUM], 
-					Integer.valueOf(score[DataIndex.SCORE.ST_KOR]),
-					Integer.valueOf(score[DataIndex.SCORE.ST_ENG]), 
-					Integer.valueOf(score[DataIndex.SCORE.ST_MATH]),
-					Integer.valueOf(score[DataIndex.SCORE.ST_MUSIC]), 
-					Integer.valueOf(score[DataIndex.SCORE.ST_ART]),
-					Integer.valueOf(score[DataIndex.SCORE.ST_SOFTWARE]), 
-					Integer.valueOf(score[DataIndex.SCORE.ST_DATABASE])
-			);
-			scList.add(scDto);
+//			String[] score = str.split(",");
+//			// ScoreDto 클래스는 field 생성자가 있다.
+//			// field 생성자를 통하여 데이터가 포함된 scDto 객체를 생성
+//			scDto = new ScoreDto(
+//					score[DataIndex.SCORE.ST_NUM], 
+//					Integer.valueOf(score[DataIndex.SCORE.ST_KOR]),
+//					Integer.valueOf(score[DataIndex.SCORE.ST_ENG]), 
+//					Integer.valueOf(score[DataIndex.SCORE.ST_MATH]),
+//					Integer.valueOf(score[DataIndex.SCORE.ST_MUSIC]), 
+//					Integer.valueOf(score[DataIndex.SCORE.ST_ART]),
+//					Integer.valueOf(score[DataIndex.SCORE.ST_SOFTWARE]), 
+//					Integer.valueOf(score[DataIndex.SCORE.ST_DATABASE])
+//			);
+			scList.add(str2Dto(str));
 		}
 	}
 

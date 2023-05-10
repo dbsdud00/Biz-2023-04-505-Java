@@ -17,7 +17,7 @@ import com.callor.classes.service.StudentService;
 // 2. printStudent() method 를 실행하여 학생 정보 출력
 
 
-public class StudentServiceImplV2 implements StudentService {
+public class StudentServiceImplV2 extends StudentServiceImplV1 {
 	List<StudentDto> stdList;
 	public StudentServiceImplV2() {
 		// TODO Auto-generated constructor stub
@@ -64,9 +64,7 @@ public class StudentServiceImplV2 implements StudentService {
 	@Override
 	public void printStudent() {
 		// TODO Auto-generated method stub
-		System.out.println(Line.dLine(130));
-		System.out.println("학번\t이름    \t학과\t\t\t학년\t전화번호\t주소");
-		System.out.println(Line.sLine(130));
+		printHeader();
 		int i = 1;
 		for (StudentDto stdDto : stdList) {
 			System.out.printf("%s\t", stdDto.stNum);

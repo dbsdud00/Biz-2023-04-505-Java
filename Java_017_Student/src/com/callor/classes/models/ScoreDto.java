@@ -30,6 +30,7 @@ public class ScoreDto {
 		this.scDatabase = scDatabase;
 	}
 	
+	
 	public String getStNum() {
 		return stNum;
 	}
