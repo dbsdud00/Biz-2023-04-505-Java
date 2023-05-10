@@ -19,7 +19,4 @@ public class CardDto {
 		Card.add(String.format("%s J", cardType));
 		return Card;
 	}
-
-	
-	
 }

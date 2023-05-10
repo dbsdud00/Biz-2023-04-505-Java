@@ -1,5 +1,14 @@
 package com.callor.Rule;
 
-public class Player extends Rule {
+public class Player {
+	private int score;
 
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 }
