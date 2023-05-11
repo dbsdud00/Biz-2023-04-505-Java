@@ -7,6 +7,6 @@ public class BookExecC {
 	public static void main(String[] args) {
 		BookService bServ = new BookServiceImplV2();
 		bServ.loadBooks();
-//		bServ.printBookList();
+		bServ.printBookList();
 	}
 }
