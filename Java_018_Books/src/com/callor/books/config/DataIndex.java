@@ -17,4 +17,11 @@ public class DataIndex {
 		public static final int AUTEL = 2;
 		public static final int AUADDRESS = 3;
 	}
+	public static class PUBLISHER {
+		public static final int PUBCODE = 0;
+		public static final int PUBNAME = 1;
+		public static final int PUBCEO = 2;
+		public static final int PUBTEL = 3;
+		public static final int PUBADDRESS = 4;
+	}
 }
