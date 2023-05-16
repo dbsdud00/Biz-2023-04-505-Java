@@ -33,9 +33,26 @@ public class StudentServiceImplV1 implements StudentService{
 			System.out.println("학생 정보 추가. 종료하려면 QUIT 입력");
 			System.out.println(Line.sLine(60));
 			
-			System.out.print("학번 >> ");
-			String stNum = scan.nextLine();
+
+			String stNum = "";
+			while(true) {
+				
+				System.out.print("학번(정수) >> ");
+				stNum = scan.nextLine();
+				if (stNum.equals("QUIT")) break;
+				
+				try {
+					int intNum = Integer.valueOf(stNum);
+					stNum = String.format("%04d", intNum);
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("학번은 정수형으로 입력해 주세요");
+					continue;
+				}
+				break;
+			}
 			if (stNum.equals("QUIT")) break;
+			
 
 			System.out.print("이름 >> ");
 			String stName = scan.nextLine();
@@ -50,10 +67,7 @@ public class StudentServiceImplV1 implements StudentService{
 				
 				System.out.print("학년 >> ");
 				String stGrade = scan.nextLine();
-				if (stGrade.equals("QUIT")) {
-					System.out.println("학생 정보 입력 종료");
-					break;
-				}
+				if (stGrade.equals("QUIT")) 	break;
 				try {
 					intStGrade = Integer.valueOf(stGrade);
 				} catch (Exception e) {
@@ -94,6 +108,7 @@ public class StudentServiceImplV1 implements StudentService{
 	@Override
 	public void loadStudent() {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

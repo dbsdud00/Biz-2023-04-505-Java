@@ -2,6 +2,7 @@ package com.callor.student.exec;
 
 import com.callor.student.service.StudentService;
 import com.callor.student.service.impl.StudentServiceImplV1;
+import com.callor.student.service.impl.StudentServiceImplV2;
 
 /*
  * 
@@ -24,14 +25,14 @@ import com.callor.student.service.impl.StudentServiceImplV1;
 public class StudentExecC {
 	
 	public static void main(String[] args) {
-		StudentService stService = new StudentServiceImplV1();
+		StudentService stService = new StudentServiceImplV2();
 		/*
 		 *  stService 는 StudentService(interface) type 의 객체이다.
 		 *  그리고 insertStudent() method 는 StudentServiceImplV1 클래스에 정의된 method이다.
 		 *  이러한 상황에서 insertStudent() method를 테스트 하기 위하여
 		 *  stService 객체를 형 변환 하여 수행한다.
 		 */
-		((StudentServiceImplV1)stService).insertStudent();
+		stService.insertStudent();
 //		stService.printStudent();
 	}
 	

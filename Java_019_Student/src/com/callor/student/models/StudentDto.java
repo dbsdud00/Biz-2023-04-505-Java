@@ -24,7 +24,7 @@ public class StudentDto {
 	
 	@Override
 	public String toString() {
-		return "\nStudentDto [stNum=" + stNum + ", stName=" + stName + ", stDept=" + stDept + ", stGrade=" + stGrade
+		return "StudentDto [stNum=" + stNum + ", stName=" + stName + ", stDept=" + stDept + ", stGrade=" + stGrade
 				+ ", stTel=" + stTel + "]";
 	}
 
