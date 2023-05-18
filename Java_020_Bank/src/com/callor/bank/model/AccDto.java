@@ -1,28 +1,19 @@
 package com.callor.bank.model;
 
 /*
- *  계좌정보 클래스
-
- *  고객 ID		문자열(10)  buId
- *  계좌번호	문자열(10)	acNum
- *  거래구분	문자열	    acDiv
- *  입금	    정수형	    acInput
- *  출금	    정수형	    acOutput
- *  거래일자	문자열	    acDate
- *  거래시각	문자열	    acTime
+ *  계좌정보 데이터 클래스
  *  
- *  
+ *  계좌번호 : acNum 
+ *  계좌구분 : acDiv
+ *  고객ID : BuId 
+ *  최종잔액 : acBalance
  */
 public class AccDto {
 
-	public String buId;
 	public String acNum;
 	public String acDiv;
-	public int acInput;
-	public int acOutput;
-	public String acDate;
-	public String acTime;
-	
+	public String BuId;
+	public int acBalance;
 	
 	
 	
@@ -33,29 +24,22 @@ public class AccDto {
 
 
 
-
-	public AccDto(String buId, String acNum, String acDiv, int acInput, int acOutput, String acDate, String acTime) {
+	public AccDto(String acNum, String acDiv, String buId, int acBalance) {
 		super();
-		this.buId = buId;
 		this.acNum = acNum;
 		this.acDiv = acDiv;
-		this.acInput = acInput;
-		this.acOutput = acOutput;
-		this.acDate = acDate;
-		this.acTime = acTime;
+		BuId = buId;
+		this.acBalance = acBalance;
 	}
-
 
 
 
 	@Override
 	public String toString() {
-		return "AccDto [buId=" + buId + ", acNum=" + acNum + ", acDiv=" + acDiv + ", acInput=" + acInput + ", acOutput="
-				+ acOutput + ", acDate=" + acDate + ", acTime=" + acTime + "]";
+		return "AccDto [acNum=" + acNum + ", acDiv=" + acDiv + ", BuId=" + BuId + ", acBalance=" + acBalance + "]";
 	}
-
 	
 	
-
+	
 
 }

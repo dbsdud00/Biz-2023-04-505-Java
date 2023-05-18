@@ -5,121 +5,88 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.callor.bank.model.AccDto;
+import com.callor.bank.model.BuyerDto;
 import com.callor.bank.service.AccService;
+import com.callor.bank.service.BuyerService;
 
 public class AccServiceImplV1 implements AccService {
-
+	
 	List<AccDto> accList;
 	Scanner scan;
-
 	public AccServiceImplV1() {
 		accList = new ArrayList<>();
 		scan = new Scanner(System.in);
 	}
-
+	
+	/*
+	 *  신규계좌 등록하기
+	 *  1. 고객ID를 입력받고, 
+	 *  2. 고객ID가 고객정보가 있는가 확인
+	 *  	BuyerServiceImplV1.getBuyer() method를 사용하여 고객 정보 찾기
+	 *  	없으면 : 고객정보를 등록하세요 라고 메시지 표현
+	 *  3. 고객번호가 있으면 신규계좌를 생성 : List<AccDto> type accList에 추가
+	 *  
+	 */
 	@Override
 	public void accInit() {
 		// TODO Auto-generated method stub
-		AccDto acdto = new AccDto();
-		System.out.print("신규 계좌번호 개설 >> ");
-		acdto.acNum = scan.nextLine();
-		acdto.acDiv = scan.nextLine();
-		acdto.acInput = Integer.valueOf(scan.nextLine());
-		acdto.acOutput = Integer.valueOf(scan.nextLine());
-		acdto.acDate = scan.nextLine();
-		acdto.acTime = scan.nextLine();
-
+		BuyerService buServ = new BuyerServiceImplV1D();
+		System.out.println("신규 계좌 등록 서비스 입니다.");
+		while(true) {
+			System.out.print("고객ID를 입력해 주세요. >> ");
+			int intBuId = 0;
+			try {
+				intBuId = Integer.valueOf( scan.nextLine());
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("정수로 입력해 주세요");
+				continue;
+			}
+			String BuId = String.format("%04d", intBuId);
+			BuyerDto buDto = buServ.getBuyer(BuId);
+			if (buDto == null) {
+				System.out.println("고객ID가 없습니다. 고객정보를 등록하세요");
+				break;
+			}
+			System.out.printf("%s고객님 확인되셨습니다.\n",buDto.buName);
+			System.out.println("신규계좌를 생성합니다.");
+			AccDto accDto = new AccDto();
+			System.out.print("계좌번호를 입력해주세요 >> ");
+			accDto.acNum =  scan.nextLine();
+			accDto.BuId =  BuId;
+		
+			
+			accList.add(accDto);
+			
+			System.out.println("계좌 등록이 완료되었습니다.");
+			break;
+		}
+		System.out.println(accList);
 	}
 
 	@Override
 	public void inout() {
 		// TODO Auto-generated method stub
-		System.out.println("입출금 서비스");
 		
-		AccDto acDto = new AccDto();
-
-		int choice = 0;
-		while (true) {
-			System.out.println("원하시는 서비스를 선택하세요");
-			System.out.println("1. 입금");
-			System.out.println("2. 출금");
-			System.out.println("3. 돌아가기");
-			try {
-				choice = Integer.valueOf(scan.nextLine());
-				if (choice == 1) {
-					break;
-				} else if (choice == 2) {
-					break;
-				} else if (choice == 3) {
-					break;
-				} else {
-					System.out.println("서비스 항목 번호를 확인해 주시고 다시 입력해 주세요");
-				}
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println("서비스 항목 번호를 확인해 주시고 숫자로 입력해 주세요");
-			}
-		}
-
-		if (choice == 1) {
-			System.out.println("입금 서비스입니다.");
-			while (true) {
-				System.out.println("입금액을 입력해 주세요");
-				try {
-					acDto.acInput = Integer.valueOf(scan.nextLine());
-
-				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println("정수형 숫자로 입력해 주세요");
-					continue;
-				}
-				System.out.println("입금되었습니다.");
-				break;
-			}
-		}
-		else if (choice == 2) {
-			System.out.println("출금 서비스 입니다.");
-			while (true) {
-				System.out.println("출금액을 입력해 주세요");
-				try {
-					acDto.acOutput += Integer.valueOf(scan.nextLine());
-				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println("정수형 숫자로 입력해 주세요");
-					continue;
-				}
-				if (acDto.acInput >= acDto.acOutput) {
-					acDto.acInput -= acDto.acOutput;
-					System.out.println("출금되었습니다.");
-				} else if (acDto.acInput < acDto.acOutput) {
-					System.out.println("잔액이 부족합니다.");
-					continue;
-				}
-				break;
-			}
-		} else if (choice == 3) {
-			
-		}
-		accList.add(acDto);
-
 	}
 
 	@Override
 	public void printAccList() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void saveAccList() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void loadAccList() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
+	
 }
