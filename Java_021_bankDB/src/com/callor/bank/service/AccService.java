@@ -24,4 +24,5 @@ public interface AccService {
 	public int insert(AccDto dto);
 	public int update(AccDto dto);
 	public int delete(String acNum);
+	public String maxAcNum(String date);
 }

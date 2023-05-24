@@ -8,8 +8,7 @@ public class DbExecF {
 	public static void main(String[] args) {
 		AccService accService = new AccServiceV1();
 		BankService bank = new BankService();
-//		System.out.println(accService.selectAll().toString());
+		System.out.println(accService.selectAll().toString());
 //		System.out.println(accService.findByBuId("0003"));
-		bank.makeAcount();
 	}
 }
