@@ -359,10 +359,11 @@ public class BankService {
 		System.out.println("2. 출금");
 		System.out.println("3. 종료");
 		System.out.print(">> ");
-		String aioDiv = scan.nextLine();
-
+		
+		String aioDiv = "";
 		while (true) {
 			try {
+				aioDiv = scan.nextLine();
 				if (aioDiv.equals("1")) {
 					dto.aioDiv = aioDiv;
 					System.out.println("\n입금하실 금액을 입력해 주세요.");
@@ -400,31 +401,43 @@ public class BankService {
 				accService.update(accDto);
 				System.out.println("\n거래가 완료되었습니다.\n");
 
-				System.out.println(Line.sLine(100));
+				System.out.println(Line.dLine(100));
 				System.out.println("계좌번호\t잔액\t거래일자\t거래시각\t거래구분\t입금액\t출금액\t적요");
 				System.out.println(Line.sLine(100));
 
 				List<AccListDto> aclList = accListService.findByAcNum(dto.acNum);
-				for (AccListDto aclDto : aclList) {
-					System.out.printf("%s\t", aclDto.acNum);
-					System.out.printf("%s\t", accDto.acBalance);
-					System.out.printf("%s\t", aclDto.aioDate);
-					System.out.printf("%s\t", aclDto.aioTime);
-					System.out.printf("%s\t\t", aclDto.aioDiv);
-					System.out.printf("%s\t", aclDto.aioInput);
-					System.out.printf("%s\t", aclDto.aioOutput);
-					System.out.printf("%s\n", aclDto.aioREM);
+//				for (AccListDto aclDto : aclList) {
+//					System.out.printf("%s\t", aclDto.acNum);
+//					System.out.printf("%s\t", aclDto.aioDate);
+//					System.out.printf("%s\t", aclDto.aioTime);
+//					System.out.printf("%s\t\t", aclDto.aioDiv);
+//					System.out.printf("%s\t", aclDto.aioInput);
+//					System.out.printf("%s\t", aclDto.aioOutput);
+//					System.out.printf("%s\n", aclDto.aioREM);
+//				}
+				int nowBalance = accDto.acBalance;
+				for (int i = aclList.size()-1; i>=0; i--) {
+					System.out.printf("%s\t", aclList.get(i).acNum);
+					System.out.printf("%s\t", nowBalance);
+					System.out.printf("%s\t", aclList.get(i).aioDate);
+					System.out.printf("%s\t", aclList.get(i).aioTime);
+					System.out.printf("%s\t\t", aclList.get(i).aioDiv);
+					System.out.printf("%s\t", aclList.get(i).aioInput);
+					System.out.printf("%s\t", aclList.get(i).aioOutput);
+					System.out.printf("%s\n", aclList.get(i).aioREM);
+					nowBalance = nowBalance - aclList.get(i).aioInput + aclList.get(i).aioOutput;
 				}
+				
 				System.out.println(Line.sLine(100));
+				System.out.print("최종잔액 >> " + accDto.acBalance + "\n");
+				System.out.println(Line.dLine(100));
 				return;
 			} else {
 				System.out.println("\n거래를 실패했습니다.");
 				System.out.println("다시 시작해 주세요");
 				return;
 			}
-
 		}
-
 	}
 
 	public void insertAccList() {
