@@ -25,6 +25,17 @@ public class DBContract {
 		public static final int ACC_BALANCE = 4;
 	}
 	
+	public static class ACCLIST {
+		public static final int AIO_SEQ = 1;
+		public static final int AIO_NUM = 2;
+		public static final int AIO_DATE = 3;
+		public static final int AIO_TIME = 4;
+		public static final int AIO_DIV = 5;
+		public static final int AIO_INPUT = 6;
+		public static final int AIO_OUTPUT = 7;
+		public static final int AIO_REM = 8;
+	}
+	
 	public static String[] ACC_DIV = {
 			"입출금계좌", "적금계좌", "대출계좌"
 	};
